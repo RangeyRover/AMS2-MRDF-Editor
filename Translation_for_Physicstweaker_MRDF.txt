@@ -1,0 +1,330 @@
+
+Vehicles\Phyiscs\physicstweaker.mrdf
+
+
+ADDRESS RANGE    CODE        Description
+        (Little End.)
+0x0030-0x0033 = 00001644 = 600.0 // Brake Glow Minimum Temp (float value)
+0x0034-0x0037 = 00009644 = 1200.0 // Brake Glow Maximum Temp (float value)
+0x0038-0x003B = CDCC4C3F = 0.80 // Brake Glow Scale for AI (float value)
+0x003C-0x003F = 0000803F = 1.0 // Brake Glow Scale for Player (float value)
+
+0x0040-0x0043 = 00000000 = 0
+0x0044-0x0047 = 00000000 = 0
+0x0048-0x004B = 000080BF = -1.0 Continuous CD Thickness (float value)
+0x004C-0x004F = 06000000 = 6 // Joint Iterations (float value)
+
+0x0050-0x0053 = 3333B33F = 1.4 // Joint Strength (float value)
+0x0054-0x0057 = 00000000 = 0 // Enable Anti Flip Aid (decimal value)
+0x0058-0x005B = 00003442 = 45.0 // Anti Flip Minimum Angle (float value)
+0x005C-0x005F = 00007042 = 60.0 // Anti Flip Maximum Angle (float value)
+
+0x0060-0x0063 = 0000A040 = 5.0 // Anti Flip Torque Fixing Force (float value)
+0x0064-0x0067 = 00000040 = 2.0 // Anti Flip Orientation Fixing Force (float value)
+0x0068-0x006B = 0000803F = 1.0 // (Float)
+0x006C-0x006F = 0000803F = 1.0 // (Float)
+
+0x0070-0x0073 = 0000803F = 1.0 // (Float)
+0x0074-0x0077 = 0000803F = 1.0 // (Float)
+0x0078-0x007B = 0000803F = 1.0 // (Float)
+0x007C-0x007F = 0000803F = 1.0 // (Float)
+
+0x0080-0x0083 = 0000803F = 1.0 // (Float)
+0x0084-0x0087 = 0000803F = 1.0 // (Float)
+0x0088-0x008B = 0000803F = 1.0 // (Float)
+0x008C-0x008F = 0000803F = 1.0 // (Float)
+
+0x0090-0x0093 = 0000803F = 1.0 // (Float)
+0x0094-0x0097 = 0000803F = 1.0 // (Float)
+0x0098-0x009B = 0000803F = 1.0 // (Float)
+0x009C-0x009F = 0000803F = 1.0 // (Float)
+
+0x00A0-0x00A3 = 0000803F = 1.0 // (Float)
+0x00A4-0x00A7 = 0000803F = 1.0 // (Float)
+0x00A8-0x00AB = 0000803F = 1.0 // (Float)
+0x00AC-0x00AF = 0000803F = 1.0 // (Float)
+
+0x00B0-0x00B3 = 0000803F = 1.0 // (Float)
+0x00B4-0x00B7 = 0000803F = 1.0 // (Float)
+0x00B8-0x00BB = 0000803F = 1.0 // (Float)
+0x00BC-0x00BF = 0000803F = 1.0 // (Float)
+
+0x00C0-0x00C3 = 0000803F = 1.0 // (Float)
+0x00C4-0x00C7 = 0000803F = 1.0 // (Float)
+0x00C8-0x00CB = 0000803F = 1.0 // (Float)
+0x00CC-0x00CF = 0000803F = 1.0 // (Float)
+
+0x00D0-0x00D3 = 0000803F = 1.0 // (Float)
+0x00D4-0x00D7 = 0000803F = 1.0 // (Float)
+0x00D8-0x00DB = 0000803F = 1.0 // (Float)
+0x00DC-0x00DF = 0000803F = 1.0 // (Float)
+
+0x00E0-0x00E3 = 0000803F = 1.0 // (Float)
+0x00E4-0x00E7 = 0000803F = 1.0 // (Float)
+0x00E8-0x00EB = 0000803F = 1.0 // (Float)
+0x00EC-0x00EF = 0000803F = 1.0 // (Float)
+
+0x00F0-0x00F3 = 0000803F = 1.0 // (Float)
+0x00F4-0x00F7 = 0000803F = 1.0 // (Float)
+0x00F8-0x00FB = 0000803F = 1.0 // (Float)
+0x00FC-0x00FF = 0000803F = 1.0 // (Float)
+
+0x0100-0x0103 = 0000803F = 1.0 // (Float)
+0x0104-0x0107 = 0000803F = 1.0 // (Float)
+0x0108-0x010B = 0000803F = 1.0 // (Float)
+0x010C-0x010F = 0000803F = 1.0 // (Float)
+
+0x0110-0x0113 = 0000803F = 1.0 // (Float)
+0x0114-0x0117 = 0000803F = 1.0 // (Float)
+0x0118-0x011B = 0000803F = 1.0 // (Float)
+0x011C-0x011F = 0000803F = 1.0 // (Float)
+
+0x0120-0x0123 = 0000803F = 1.0 // (Float)
+0x0124-0x0127 = 0000803F = 1.0 // (Float)
+0x0128-0x012B = 0000803F = 1.0 // (Float)
+0x012C-0x012F = 0000803F = 1.0 // (Float)
+
+0x0130-0x0133 = 0000803F = 1.0 // (Float)
+0x0134-0x0137 = 0000803F = 1.0 // (Float)
+0x0138-0x013B = 0000803F = 1.0 // (Float)
+0x013C-0x013F = 0000803F = 1.0 // (Float)
+
+0x0140-0x0143 = 00000040 = 2.0 // (Float)
+0x0144-0x0147 = 00000040 = 2.0 // (Float)
+0x0148-0x014B = 00000040 = 2.0 // (Float)
+0x014C-0x014F = 00000040 = 2.0 // (Float)
+
+0x0150-0x0153 = 00000040 = 2.0 // (Float)
+0x0154-0x0157 = 00000040 = 2.0 // (Float)
+0x0158-0x015B = 0000803F = 1.0 // (Float)
+0x015C-0x015F = 0000803F = 1.0 // (Float)
+
+0x0160-0x0163 = 0000803F = 1.0 // (Float)
+0x0164-0x0167 = 00000000 = 0
+0x0168-0x016B = 00000000 = 0
+0x016C-0x016F = 00000000 = 0
+
+0x0170-0x0173 = 00000040 = 2.0 // (Float)
+0x0174-0x0177 = 00000040 = 2.0 // (Float)
+0x0178-0x017B = 00000040 = 2.0 // (Float)
+0x017C-0x017F = 00000040 = 2.0 // (Float)
+
+0x0180-0x0183 = 00 00 00 40 = 2.0 // (Float)
+0x0184-0x0187 = 00 00 00 40 = 2.0 // (Float)
+0x0188-0x018B = 00 00 00 40 = 2.0 // (Float)
+0x018C-0x018F = 00 00 80 3F = 1.0 // (Float)
+
+0x0190-0x0193 = 0000803F = 1.0 // (Float)
+0x0194-0x0197 = 0000803F = 1.0 // (Float)
+0x0198-0x019B = 0000803F = 1.0 // (Float)
+0x019C-0x019F = 0000803F = 1.0 // (Float)
+
+0x01A0-0x01A3 = 00 00 00 40 = 2.0 // (Float)
+0x01A4-0x01A7 = 00 00 00 40 = 2.0 // (Float)
+0x01A8-0x01AB = 00 00 00 40 = 2.0 // (Float)
+0x01AC-0x01AF = 00 00 00 40 = 2.0 // (Float)
+
+0x01B0-0x01B3 = 00 00 00 40 = 2.0 // (Float)
+0x01B4-0x01B7 = 00 00 00 40 = 2.0 // (Float)
+0x01B8-0x01BB = 00 00 00 40 = 2.0 // (Float)
+0x01BC-0x01BF = 00 00 00 40 = 2.0 // (Float)
+
+0x01C0-0x01C3 = 00 00 00 40 = 2.0 // (Float)
+0x01C4-0x01C7 = 00 00 00 40 = 2.0 // (Float)
+0x01C8-0x01CB = 00 00 00 40 = 2.0 // (Float)
+0x01CC-0x01CF = 00 00 00 40 = 2.0 // (Float)
+
+0x01D0-0x01D3 = 00 00 80 3F = 1.0 // (Float)
+0x01D4-0x01D7 = 00 00 00 00 = 0
+0x01D8-0x01DB = 00 00 0000 = 0
+0x01DC-0x01DF = 00 00 0000 = 0
+
+0x01E0-0x01E3 = 00 00 00 00 = 0
+0x01E4-0x01E7 = 00 00 00 00 = 0
+0x01E8-0x01EB = 00 00 80 3F = 1.0 // (Float)
+0x01EC-0x01EF = 00 00 80 3F = 1.0 // (Float)
+
+0x01F0-0x01F3 = 0000803F = 1.0 // (Float)
+0x01F4-0x01F7 = 0000803F = 1.0 // (Float)
+0x01F8-0x01FB = 0000803F = 1.0 // (Float)
+0x01FC-0x01FF = 0000803F = 1.0 // (Float)
+
+0x0200-0x0203 = 0000803F = 1.0 // (Float)
+0x0204-0x0207 = 0000803F = 1.0 // (Float)
+0x0208-0x020B = 0000803F = 1.0 // (Float)
+0x020C-0x020F = 0000803F = 1.0 // (Float)
+
+0x0210-0x0213 = 0000803F = 1.0 // (Float)
+0x0214-0x0217 = 0000803F = 1.0 // (Float)
+0x0218-0x021B = 0000803F = 1.0 // (Float)
+0x021C-0x021F = 0000803F = 1.0 // (Float)
+
+0x0220-0x0223 = 0000803F = 1.0 // (Float)
+0x0224-0x0227 = 0000803F = 1.0 // (Float)
+0x0228-0x022B = 0000803F = 1.0 // (Float)
+0x022C-0x022F = 0000803F = 1.0 // (Float)
+
+0x0230-0x0233 = 0000803F = 1.0 // (Float)
+0x0234-0x0237 = 0000803F = 1.0 // (Float)
+0x0238-0x023B = 0000803F = 1.0 // (Float)
+0x023C-0x023F = 0000803F = 1.0 // (Float)
+
+0x0240-0x0243 = 0000803F = 1.0 // (Float)
+0x0244-0x0247 = 0000803F = 1.0 // (Float)
+0x0248-0x024B = 0000803F = 1.0 // (Float)
+0x024C-0x024F = 0000803F = 1.0 // (Float)
+
+0x0250-0x0253 = 0000803F = 1.0 // (Float)
+0x0254-0x0257 = 0000803F = 1.0 // (Float)
+0x0258-0x025B = 0000803F = 1.0 // (Float)
+0x025C-0x025F = 0000803F = 1.0 // (Float)
+
+0x0260-0x0263 = 0000803F = 1.0 // (Float)
+0x0264-0x0267 = 0000803F = 1.0 // (Float)
+0x0268-0x026B = 0000803F = 1.0 // (Float)
+0x026C-0x026F = 0000803F = 1.0 // (Float)
+
+0x0270-0x0273 = 0000803F = 1.0 // (Float)
+0x0274-0x0277 = 0000803F = 1.0 // (Float)
+0x0278-0x027B = 0000803F = 1.0 // (Float)
+0x027C-0x027F = 0000803F = 1.0 // (Float)
+
+0x0280-0x0283 = 0000803F = 1.0 // (Float)
+0x0284-0x0287 = 0000803F = 1.0 // (Float)
+0x0288-0x028B = 0000803F = 1.0 // (Float)
+0x028C-0x028F = 0000803F = 1.0 // (Float)
+
+0x0290-0x0293 = 0000803F = 1.0 // (Float)
+0x0294-0x0297 = 0000803F = 1.0 // (Float)
+0x0298-0x029B = 0000803F = 1.0 // (Float)
+0x029C-0x029F = 0000803F = 1.0 // (Float)
+
+0x02A0-0x02A3 = 0000803F = 1.0 // (Float)
+0x02A4-0x02A7 = 0000803F = 1.0 // (Float)
+0x02A8-0x02AB = 0000803F = 1.0 // (Float)
+0x02AC-0x02AF = 0000803F = 1.0 // (Float)
+
+0x02B0-0x02B3 = 0000803F = 1.0 // (Float)
+0x02B4-0x02B7 = 0000803F = 1.0 // (Float)
+0x02B8-0x02BB = 0000803F = 1.0 // (Float)
+0x02BC-0x02BF = 0000803F = 1.0 // (Float)
+
+0x02C0-0x02C3 = 0000803F = 1.0 // (Float)
+0x02C4-0x02C7 = 0000803F = 1.0 // (Float)
+0x02C8-0x02CB = 0000803F = 1.0 // (Float)
+0x02CC-0x02CF = 0000803F = 1.0 // (Float)
+
+0x02D0-0x02D3 = 0000803F = 1.0 // (Float)
+0x02D4-0x02D7 = 0000803F = 1.0 // (Float)
+0x02D8-0x02DB = 0000803F = 1.0 // (Float)
+0x02DC-0x02DF = 0000803F = 1.0 // (Float)
+
+0x02E0-0x02E3 = 0000803F = 1.0 // (Float)
+0x02E4-0x02E7 = 0000803F = 1.0 // (Float)
+0x02E8-0x02EB = 0000803F = 1.0 // (Float)
+0x02EC-0x02EF = 0000803F = 1.0 // (Float)
+
+0x02F0-0x02F3 = 00 00 00 3F = 0.5 // Minimum Bump Stop Force (float value)
+0x02F4-0x02F7 = 00 00 00 40 = 2.0 // Maximum Bump Stop Force (float value)
+0x02F8-0x02FB = 00 00 C8 41 = 25.0 // Drafting Minimum Speed (float value)
+0x02FC-0x02FF = 00 00 0C 42 = 35.0 // Drafting Ramp Speed (float value)
+
+0x0300-0x0303 = 00 00 C8 42 = 100.0 // Drafting Maximum Speed (float value)
+0x0304-0x0307 = 00 00 C8 42 = 100.0 // Drafting Max Distance In Front
+0x0308-0x030B = CD CC CC 3E = 0.4 // Drafting Min Lateral In Front (float value)
+0x030C-0x030F = 00 00 40 40 = 3.0// Drafting Max Lateral In Front (float value)
+
+0x0310-0x0313 = 00 00 00 40 = 2.0 // Drafting Max Distance Behind (float value)
+0x0314-0x0317 = CD CC CC 3E = 0.4 // Drafting Min Lateral Behind (float value)
+0x0318-0x031B = 00 00 00 40 = 2.0 // Drafting Max Lateral Behind (float value)
+0x031C-0x031F = 9A 99 19 40 = 2.4 // Drafting Air Scale (float value)
+
+0x0320-0x0323 = CD CC CC 3D = 0.1 // Low Speed TC At Rest (float value)
+0x0324-0x0327 = 00 00 C0 40 = 6.0 // Low Speed TC Speed Threshold (float value)
+0x0328-0x032B = 00 00 00 3F = 0.5 // Low Speed Grip At Rest (float value)
+0x032C-0x032F = 00 00 C0 40 = 6.0 // Low Speed Grip Speed Threshold (float value)
+
+0x0330-0x0333 = 00 00 40 40 = 3.0 // Auto Reset - Time Collision Is Disabled (float value)
+0x0334-0x0337 = 00 00 20 41 = 10.0 // Auto Reset - Minimum Speed in MPH (float value)
+0x0338-0x033B = 00 00 00 00 = 0 // Adjustable Upgrade Level 0 (decimal value)
+0x033C-0x033F = 01 00 00 00 = 1 // Adjustable Upgrade Level 1 (decimal value)
+
+0x0340-0x0343 = 02 00 00 00 = 2 // Adjustable Upgrade Level 2 (decimal value)
+0x0344-0x0347 = 03 00 00 00 = 3 // Adjustable Upgrade Level 3 (decimal value)
+0x0348-0x034B = 04 00 00 00 = 4 // Adjustable Upgrade Level 4 (decimal value)
+0x034C-0x034F = 00 00 80 3F = 1.0 // Rumble Strip Front Wheel Grip Scale (float value)
+
+0x0350-0x0353 = 00 00 80 3F = 1.0 // Rumble Strip Front Wheel Grip Scale Drift (float value)
+0x0354-0x0357 = CD CC 4C 3F = 0.8
+0x0358-0x035B = 00 80 BB 44 = 1500.0
+0x035C-0x035F = 00 00 00 3F = 0.5
+
+0x0360-0x0363 = 00 00 C0 3F = 1.5
+0x0364-0x0367 = 00 00 80 3F = 1.0
+0x0368-0x036B = 33 33 33 3F = 0.7
+0x036C-0x036F = 00 00 00 41 = 8.0
+
+0x0370-0x0373 = CD CC 4C 3F = 0.8
+0x0374-0x0377 = 00 00 00 00 = 0
+0x0378-0x037B = 01 00 00 00 = 1 // auto clutch (decimal value)
+0x037C-0x037F = 02 00 00 00 = 2 // steering help function (decimal value)
+
+0x0380-0x0383 = B4 00 00 00 = 180 // (Decimal) Physics Tick Rate (See Below)
+(Tick Rate Values)
+B4000000 = 180 tick rate
+68010000 = 360 tick rate
+1C020000 = 540 tick rate
+
+0x0384-0x0387 = 01 00 00 00 = 1 // auto reverse  (decimal value)
+0x0388-0x038B = CD CC 0C 3F = 0.55 // auto shift override time (float value)
+0x038C-0x038F = 00 00 00 3F = 0.5 // manual shift override time (float value)
+
+0x0390-0x0393 = 00 00 C8 41 = 25.0 // steer ratio speed (float value)
+0x0394-0x0397 = CD CC 4C 3E = 0.2 // novice steering help (float value)
+0x0398-0x039B = 00 00 00 00 = 0
+0x039C-0x039F = 00 00 00 00 = 0
+
+0x03A0-0x03A3 = 00 00 F0 41 = 30.0 // ai physics difficulty mix Grip (float value)
+0x03A4-0x03A7 = 00 00 A0 42 = 80.0 // ai physics difficulty mix Torque (float value)
+0x03A8-0x03AB = 00 00 A0 41 = 20.0 // ai physics difficulty mix Gear (float value)
+0x03AC-0x03AF = 00 00 00 00 = 0 // ai physics difficulty mix Fuel (float value)
+
+0x03B0-0x03B3 = 00 00 B4 42 = 90.0 // AI Strength Novice (float value)
+0x03B4-0x03B7 = 00 00 C2 42 = 97.0 // AI Strength Amatuer (float value)
+0x03B8-0x03BB = 00 00 D4 42 = 106.0 // AI Strength Pro (float value)
+
+0x03BC-0x03BF = 00 00 F0 41 = 30.0 // AI Aggression Novice (float value)
+0x03C0-0x03C3 = 00 00 0C 42 = 35.0 // AI Aggression Normal (float value)
+0x03C4-0x03C7 = 00 00 20 42 = 40.0 // AI Aggression XP (float value)
+0x03C8-0x03CB = 00 00 C8 42 = 100.00 // AI Aggression Pro (float value)
+0x03CC-0x03CF = 00 00 C8 42 = 100.0 // AI Aggression Elite (float value)
+0x03D0-0x03D3 = 00 00 C8 42 = 100.0 // AI Aggression Spare (float value)
+
+0x03D4-0x03D7 = 01 00 00 00 = 1 // fuel mult (decimal value)
+0x03D8-0x03DB = 01 00 00 00 = 1 // tire mult (decimal value)
+0x03DC-0x03DF = 00 00 A0 41 = 20.0 // ai min radius (float value)
+
+0x03E0-0x03E3 = 00 40 1C 47 = 40,000.0 // ai max load (float value)
+0x03E4-0x03E7 = 33 33 73 3F = 0.95 // ai additional fuel mult (float value)
+0x03E8-0x03EB = EC 51 78 3F = 0.97 // ai brake power (float value)
+0x03EC-0x03EF = CD CC 4C 3F = 0.80 // ai brake grip  (float value)
+
+0x03F0-0x03F3 = 1F 85 6B 3F = 0.92 // ai corner grip  (float value)
+0x03F4-0x03F7 = 00 00 00 00 = 0 // ai power calibration (decimal value) 0x 00 00 00 to change value
+0x03F8-0x03FB = 00 00 00 00 = 0 // crash recovery (decimal value)
+0x03FC-0x03FF = CD CC 4C 3F = 0.8 // head physics (float value)
+
+0x0400-0x0403 = 00 00 00 3F = 0.5 // visual steering at speed (float value)
+0x0404-0x0407 = 00 00 80 3F = 1.0 // DriftControl max steer velocity scale (float value)
+0x0408-0x040B = 00 00 80 3F = 1.0 // DriftControl rise damping scale (float value)
+0x040C-0x040F = 00 00 80 3F = 1.0 // // DriftControl fall damping scale (float value)
+
+0x0410-0x0413 = 00 00 00 3F = 0.5 // DriftControl nominal yaw angle scale (float value)
+0x0414-0x0417 = 00 00 80 3F = 1.0 // DriftControl yaw angle effect scale (float value)
+0x0418-0x041B = 00 00 80 3F = 1.0 // DriftControl lock ratio effect scale (float value)
+0x041C-0x041F = D7 A3 F0 3E = 0.14
+
+0x0420-0x0423 = 00 00 00 00 = 0 // Live HDVehicle trace enabled (decimal value) 01 00 00 00 = TRUE
+0x0424-0x0427 = 01 00 00 00 = 1 // Disable PhysX switching  (decimal value) 00 00 00 00 = FALSE
+0x0428-0x042B = CD CC CC 3D = 0.1
+0x042C-0x042F = CD CC 4C 3E = 0.2
