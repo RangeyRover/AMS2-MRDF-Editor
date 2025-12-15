@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mrdfDefinitions>
+
+  <!-- ===================================================== -->
+  <!-- ENUMERATIONS + BITMASKS -->
+  <!-- ===================================================== -->
+  <enums>
+
+    <!-- Core enums used by multiple profiles -->
+    <enum name="BOOL01">
+      <value code="0">False</value>
+      <value code="1">True</value>
+    </enum>
+
+    <enum name="ENGINE_TYPE">
+      <value code="0x00">Don't use</value>
+      <value code="0x01">V6</value>
+      <value code="0x02">V8</value>
+      <value code="0x03">V10</value>
+      <value code="0x04">V12</value>
+      <value code="0x05">Straight 4</value>
+      <value code="0x06">Straight 5</value>
+      <value code="0x07">Straight 6</value>
+      <value code="0x08">Rotary 2</value>
+      <value code="0x09">Rotary 3</value>
+      <value code="0x0A">Flat 4</value>
+      <value code="0x0B">Flat 6</value>
+      <value code="0x0C">W16</value>
+      <value code="0x0D">W12</value>
+      <value code="0x0E">Single Cylinder</value>
+      <value code="0x0F">Twin Cylinder</value>
+      <value code="0x10">Flat 8</value>
+      <value code="0x11">Flat 12</value>
+    </enum>
+
+    <enum name="DRIVETRAIN">
+      <value code="0">RWD</value>
+      <value code="1">AWD</value>
+      <value code="2">FWD</value>
+    </enum>
+
+    <enum name="BOOST_TYPE">
+      <value code="0">Natural Aspiration</value>
+      <value code="1">Supercharged</value>
+      <value code="2">Turbo</value>
+    </enum>
+
+    <enum name="ASPIRATION">
+      <value code="0">Naturally aspirated</value>
+      <value code="1">Boosted</value>
+    </enum>
+
+    <enum name="SHIFT_TYPE">
+      <value code="0">H Pattern</value>
+      <value code="1">Sequential</value>
+    </enum>
+
+    <enum name="TICK_RATE">
+      <value code="180">180 Hz</value>
+      <value code="360">360 Hz</value>
+      <value code="540">540 Hz</value>
+    </enum>
+
+    <bitmask name="TYRE_BITS" baseType="uint8">
+      <bit mask="0x01">Soft / Semi Slick</bit>
+      <bit mask="0x02">Medium</bit>
+      <bit mask="0x04">Hard</bit>
+      <bit mask="0x08">Intermediate</bit>
+      <bit mask="0x10">Wet</bit>
+      <bit mask="0x20">Extreme</bit>
+      <bit mask="0x40">All Weather</bit>
+    </bitmask>
+
+  </enums>
+
+  <!-- ===================================================== -->
+  <!-- STATS PROFILE -->
+  <!-- Grouped by "section" for readability; offsets preserved -->
+  <!-- ===================================================== -->
+  <profile name="STATS">
+
+    <!-- PERFORMANCE -->
+    <field name="TopSpeed_mps" section="PERFORMANCE" offset="0x20" type="float">
+      <description>Top speed in meters/sec (MPH × 0.447)</description>
+    </field>
+    <field name="Accel_0_100_kmh" section="PERFORMANCE" offset="0x24" type="float">
+      <description>0–100 km/h time (seconds)</description>
+    </field>
+    <field name="Gear_for_100_kmh" section="PERFORMANCE" offset="0x28" type="uint32">
+      <description>Gear needed to reach 100 km/h</description>
+    </field>
+    <field name="Accel_0_160_kmh" section="PERFORMANCE" offset="0x2C" type="float">
+      <description>0–160 km/h time (seconds)</description>
+    </field>
+    <field name="Gear_for_160_kmh" section="PERFORMANCE" offset="0x30" type="uint32">
+      <description>Gear needed to reach 160 km/h</description>
+    </field>
+    <field name="Braking_100_0_kmh" section="PERFORMANCE" offset="0x34" type="float">
+      <description>100–0 km/h braking time (seconds)</description>
+    </field>
+    <field name="PerformanceIndex_PI" section="PERFORMANCE" offset="0x38" type="float">
+      <description>Performance index (not used in-game)</description>
+    </field>
+    <field name="Mass_kg" section="PERFORMANCE" offset="0x3C" type="float">
+      <description>Vehicle mass in kilograms</description>
+    </field>
+
+    <!-- DRIVETRAIN -->
+    <field name="NumGears" section="DRIVETRAIN" offset="0x40" type="uint32">
+      <description>Number of transmission gears</description>
+    </field>
+    <field name="Torque_lbft" section="DRIVETRAIN" offset="0x44" type="float">
+      <description>Engine torque (lb-ft)</description>
+    </field>
+    <field name="HP_SAE_Net" section="DRIVETRAIN" offset="0x48" type="float">
+      <description>Horsepower (SAE Net)</description>
+    </field>
+    <field name="DrivetrainType" section="DRIVETRAIN" offset="0x4C" type="uint32" enum="DRIVETRAIN">
+      <description>Drivetrain layout</description>
+    </field>
+    <field name="ShiftType" section="DRIVETRAIN" offset="0xA4" type="uint32" enum="SHIFT_TYPE"/>
+
+    <!-- ENGINE -->
+    <field name="BoostType" section="ENGINE" offset="0x50" type="uint32" enum="BOOST_TYPE"/>
+    <field name="Aspiration" section="ENGINE" offset="0x54" type="uint32" enum="ASPIRATION"/>
+    <field name="EngineType" section="ENGINE" offset="0x64" type="uint32" enum="ENGINE_TYPE"/>
+    <field name="EngineDisplacement" section="ENGINE" offset="0xA0" type="float">
+      <description>Engine displacement (litres)</description>
+    </field>
+    <field name="BoostButton" section="ENGINE" offset="0xAC" type="bool32">
+      <description>Boost button available (1=true)</description>
+    </field>
+    <field name="AdjustableTurbo" section="ENGINE" offset="0xB0" type="bool32">
+      <description>Adjustable turbo available (1=true)</description>
+    </field>
+
+    <!-- HANDLING -->
+    <field name="HandlingPerformance" section="HANDLING" offset="0x58" type="float">
+      <description>Handling performance</description>
+    </field>
+    <field name="CorneringDifficulty" section="HANDLING" offset="0x98" type="uint32">
+      <description>Cornering difficulty (1,2,3)</description>
+    </field>
+    <field name="CorneringSpeed" section="HANDLING" offset="0x9C" type="uint32">
+      <description>Cornering speed (1,2,3)</description>
+    </field>
+
+    <!-- META -->
+    <field name="TierLevel" section="META" offset="0x68" type="uint32">
+      <description>Tier level</description>
+    </field>
+
+    <!-- CHASSIS -->
+    <field name="BodyHeightAdjust_m" section="CHASSIS" offset="0x80" type="float">
+      <description>Menu-only body height adjust (m)</description>
+    </field>
+    <field name="Wheelbase_m" section="CHASSIS" offset="0x84" type="float">
+      <description>Wheelbase (m)</description>
+    </field>
+    <field name="RearWeightDistribution" section="CHASSIS" offset="0x88" type="float">
+      <description>Rear weight distribution (0..1)</description>
+    </field>
+    <field name="OnboardRollBars" section="CHASSIS" offset="0xB4" type="bool32">
+      <description>Onboard roll bars adjustable (1=true)</description>
+    </field>
+
+    <!-- ASSISTS -->
+    <field name="ABS" section="ASSISTS" offset="0x8C" type="bool32">
+      <description>ABS enabled (1=true)</description>
+    </field>
+    <field name="TC" section="ASSISTS" offset="0x90" type="bool32">
+      <description>Traction Control (1=true)</description>
+    </field>
+    <field name="SC" section="ASSISTS" offset="0x94" type="bool32">
+      <description>Stability Control (1=true)</description>
+    </field>
+
+    <!-- AERO -->
+    <field name="DRS_Enabled" section="AERO" offset="0xA8" type="bool32">
+      <description>DRS available (1=true)</description>
+    </field>
+
+    <!-- BRAKES -->
+    <field name="OnboardBrakeBias" section="BRAKES" offset="0xB8" type="bool32">
+      <description>Onboard brake bias adjustable (1=true)</description>
+    </field>
+
+    <!-- ELECTRICAL -->
+    <field name="Headlights" section="ELECTRICAL" offset="0xC0" type="bool32">
+      <description>Headlights available (1=true)</description>
+    </field>
+
+    <!-- TYRES -->
+    <field name="TyreAvailability" section="TYRES" offset="0xBC" type="uint32" bitmask="TYRE_BITS">
+      <description>Tyre availability bitmask (low byte)</description>
+    </field>
+
+    <!-- DRIVETRAIN (feature flags kept with drivetrain for discoverability) -->
+    <field name="PitLimiter" section="DRIVETRAIN" offset="0xC4" type="bool32">
+      <description>Pit limiter available (1=true)</description>
+    </field>
+
+    <!-- UNKNOWN -->
+    <field name="Unknown_0x5C" section="UNKNOWN" offset="0x5C" type="uint32">
+      <description>Unknown</description>
+    </field>
+    <field name="Unknown_0x60" section="UNKNOWN" offset="0x60" type="uint32">
+      <description>Unknown</description>
+    </field>
+    <field name="Unknown_0x6C" section="UNKNOWN" offset="0x6C" type="float">
+      <description>Unknown float</description>
+    </field>
+    <field name="Unknown_0x70" section="UNKNOWN" offset="0x70" type="float">
+      <description>Unknown float</description>
+    </field>
+    <field name="Unknown_0x74" section="UNKNOWN" offset="0x74" type="uint32">
+      <description>Unknown (often 0x80000000 in sample)</description>
+    </field>
+    <field name="Unknown_0x78" section="UNKNOWN" offset="0x78" type="float">
+      <description>Unknown float</description>
+    </field>
+    <field name="Unknown_0x7C" section="UNKNOWN" offset="0x7C" type="float">
+      <description>Unknown float</description>
+    </field>
+
+  </profile>
+
+  <!-- ===================================================== -->
+  <!-- PHYSICS TWEAKER PROFILE -->
+  <!-- (left in offset order; already nicely grouped by comments) -->
+  <!-- ===================================================== -->
+  <profile name="PHYSICS_TWEAKER">
+
+    <notes source="JDougNY">
+      <path>Vehicles\Physics\physicstweaker.mrdf</path>
+      <endianness>Little Endian</endianness>
+      <commentary>
+        This mapping is based on observed/default values in physicstweaker.mrdf.
+        Many addresses are present but not described; those are retained as Unknown_* fields.
+      </commentary>
+    </notes>
+
+    <!-- 0x0030 - Brake glow -->
+    <field name="BrakeGlowMinTemp" section="BRAKES" offset="0x0030" type="float">
+      <notes source="JDougNY"><example hex="00001644">600.0</example></notes>
+    </field>
+    <field name="BrakeGlowMaxTemp" section="BRAKES" offset="0x0034" type="float">
+      <notes source="JDougNY"><example hex="00009644">1200.0</example></notes>
+    </field>
+    <field name="BrakeGlowScaleAI" section="BRAKES" offset="0x0038" type="float">
+      <notes source="JDougNY"><example hex="CDCC4C3F">0.80</example></notes>
+    </field>
+    <field name="BrakeGlowScalePlayer" section="BRAKES" offset="0x003C" type="float">
+      <notes source="JDougNY"><example hex="0000803F">1.0</example></notes>
+    </field>
+
+    <!-- 0x0040..0x0047 unknown zeros in sample -->
+    <field name="Unknown_0x0040" section="UNKNOWN" offset="0x0040" type="uint32">
+      <notes source="JDougNY"><example hex="00000000">0</example></notes>
+    </field>
+    <field name="Unknown_0x0044" section="UNKNOWN" offset="0x0044" type="uint32">
+      <notes source="JDougNY"><example hex="00000000">0</example></notes>
+    </field>
+
+    <!-- 0x0048.. joints -->
+    <field name="ContinuousCDThickness" section="JOINTS" offset="0x0048" type="float">
+      <notes source="JDougNY"><example hex="000080BF">-1.0</example></notes>
+    </field>
+    <field name="JointIterations" section="JOINTS" offset="0x004C" type="uint32">
+      <notes source="JDougNY">
+        <example hex="06000000">6</example>
+        <commentary>Source text says “float value”, but hex sample matches uint32=6.</commentary>
+      </notes>
+    </field>
+    <field name="JointStrength" section="JOINTS" offset="0x0050" type="float">
+      <notes source="JDougNY"><example hex="3333B33F">1.4</example></notes>
+    </field>
+
+    <!-- Anti-flip -->
+    <field name="EnableAntiFlipAid" section="ANTI-FLIP" offset="0x0054" type="uint32" enum="BOOL01">
+      <notes source="JDougNY"><example hex="00000000">0</example></notes>
+    </field>
+    <field name="AntiFlipMinAngle" section="ANTI-FLIP" offset="0x0058" type="float">
+      <notes source="JDougNY"><example hex="00003442">45.0</example></notes>
+    </field>
+    <field name="AntiFlipMaxAngle" section="ANTI-FLIP" offset="0x005C" type="float">
+      <notes source="JDougNY"><example hex="00007042">60.0</example></notes>
+    </field>
+    <field name="AntiFlipTorqueForce" section="ANTI-FLIP" offset="0x0060" type="float">
+      <notes source="JDougNY"><example hex="0000A040">5.0</example></notes>
+    </field>
+    <field name="AntiFlipOrientForce" section="ANTI-FLIP" offset="0x0064" type="float">
+      <notes source="JDougNY"><example hex="00000040">2.0</example></notes>
+    </field>
+
+    <!-- 0x0068..0x02EF: mostly (Float)=1.0/2.0 blocks with no description -->
+    <field name="Unknown_0x0068" section="UNKNOWN" offset="0x0068" type="float">
+      <notes source="JDougNY"><example hex="0000803F">1.0</example></notes>
+    </field>
+    <field name="Unknown_0x006C" section="UNKNOWN" offset="0x006C" type="float">
+      <notes source="JDougNY"><example hex="0000803F">1.0</example></notes>
+    </field>
+    <!-- (…repeat pattern as needed; recommend generating these programmatically rather than hand-writing) -->
+
+    <!-- Bump stops -->
+    <field name="MinBumpStopForce" section="SUSPENSION" offset="0x02F0" type="float">
+      <notes source="JDougNY"><example hex="0000003F">0.5</example></notes>
+    </field>
+    <field name="MaxBumpStopForce" section="SUSPENSION" offset="0x02F4" type="float">
+      <notes source="JDougNY"><example hex="00000040">2.0</example></notes>
+    </field>
+
+    <!-- Drafting -->
+    <field name="DraftMinSpeed" section="DRAFTING" offset="0x02F8" type="float">
+      <notes source="JDougNY"><example hex="0000C841">25.0</example></notes>
+    </field>
+    <field name="DraftRampSpeed" section="DRAFTING" offset="0x02FC" type="float">
+      <notes source="JDougNY"><example hex="00000C42">35.0</example></notes>
+    </field>
+    <field name="DraftMaxSpeed" section="DRAFTING" offset="0x0300" type="float">
+      <notes source="JDougNY"><example hex="0000C842">100.0</example></notes>
+    </field>
+    <field name="DraftMaxDistFront" section="DRAFTING" offset="0x0304" type="float">
+      <notes source="JDougNY"><example hex="0000C842">100.0</example></notes>
+    </field>
+    <field name="DraftMinLatFront" section="DRAFTING" offset="0x0308" type="float">
+      <notes source="JDougNY"><example hex="CDCCCC3E">0.4</example></notes>
+    </field>
+    <field name="DraftMaxLatFront" section="DRAFTING" offset="0x030C" type="float">
+      <notes source="JDougNY"><example hex="00004040">3.0</example></notes>
+    </field>
+    <field name="DraftMaxDistBehind" section="DRAFTING" offset="0x0310" type="float">
+      <notes source="JDougNY"><example hex="00000040">2.0</example></notes>
+    </field>
+    <field name="DraftMinLatBehind" section="DRAFTING" offset="0x0314" type="float">
+      <notes source="JDougNY"><example hex="CDCCCC3E">0.4</example></notes>
+    </field>
+    <field name="DraftMaxLatBehind" section="DRAFTING" offset="0x0318" type="float">
+      <notes source="JDougNY"><example hex="00000040">2.0</example></notes>
+    </field>
+    <field name="DraftAirScale" section="DRAFTING" offset="0x031C" type="float">
+      <notes source="JDougNY"><example hex="9A991940">2.4</example></notes>
+    </field>
+
+    <!-- Low speed assists -->
+    <field name="LowSpeedTCAtRest" section="ASSISTS" offset="0x0320" type="float">
+      <notes source="JDougNY"><example hex="CDCCCC3D">0.1</example></notes>
+    </field>
+    <field name="LowSpeedTCSpeedThresh" section="ASSISTS" offset="0x0324" type="float">
+      <notes source="JDougNY"><example hex="0000C040">6.0</example></notes>
+    </field>
+    <field name="LowSpeedGripAtRest" section="ASSISTS" offset="0x0328" type="float">
+      <notes source="JDougNY"><example hex="0000003F">0.5</example></notes>
+    </field>
+    <field name="LowSpeedGripSpeedTh" section="ASSISTS" offset="0x032C" type="float">
+      <notes source="JDougNY"><example hex="0000C040">6.0</example></notes>
+    </field>
+
+    <!-- Auto reset -->
+    <field name="AutoResetDisableCollT" section="RESET" offset="0x0330" type="float">
+      <notes source="JDougNY"><example hex="00004040">3.0</example></notes>
+    </field>
+    <field name="AutoResetMinSpeedMPH" section="RESET" offset="0x0334" type="float">
+      <notes source="JDougNY"><example hex="00002041">10.0</example></notes>
+    </field>
+
+    <!-- Adjustable upgrade levels -->
+    <field name="AdjustableUpgradeLevel0" section="UPGRADES" offset="0x0338" type="uint32">
+      <notes source="JDougNY"><example hex="00000000">0</example></notes>
+    </field>
+    <field name="AdjustableUpgradeLevel1" section="UPGRADES" offset="0x033C" type="uint32">
+      <notes source="JDougNY"><example hex="01000000">1</example></notes>
+    </field>
+    <field name="AdjustableUpgradeLevel2" section="UPGRADES" offset="0x0340" type="uint32">
+      <notes source="JDougNY"><example hex="02000000">2</example></notes>
+    </field>
+    <field name="AdjustableUpgradeLevel3" section="UPGRADES" offset="0x0344" type="uint32">
+      <notes source="JDougNY"><example hex="03000000">3</example></notes>
+    </field>
+    <field name="AdjustableUpgradeLevel4" section="UPGRADES" offset="0x0348" type="uint32">
+      <notes source="JDougNY"><example hex="04000000">4</example></notes>
+    </field>
+
+    <!-- Rumble strip -->
+    <field name="RumbleStripFrontWheelGripScale" section="GRIP" offset="0x034C" type="float">
+      <notes source="JDougNY"><example hex="0000803F">1.0</example></notes>
+    </field>
+    <field name="RumbleStripFrontWheelGripScaleDrift" section="GRIP" offset="0x0350" type="float">
+      <notes source="JDougNY"><example hex="0000803F">1.0</example></notes>
+    </field>
+
+    <!-- Auto clutch / steering help function -->
+    <field name="AutoClutch" section="ASSISTS" offset="0x0378" type="uint32">
+      <notes source="JDougNY"><example hex="01000000">1</example></notes>
+    </field>
+    <field name="SteeringHelpFunction" section="ASSISTS" offset="0x037C" type="uint32">
+      <notes source="JDougNY"><example hex="02000000">2</example></notes>
+    </field>
+
+    <!-- Tick rate + shift override -->
+    <field name="PhysicsTickRate" section="PHYSICS" offset="0x0380" type="uint32" enum="TICK_RATE">
+      <notes source="JDougNY">
+        <example hex="B4000000">180</example>
+        <commentary>Known tick-rate encodings: 180, 360, 540.</commentary>
+      </notes>
+    </field>
+    <field name="AutoReverse" section="ASSISTS" offset="0x0384" type="uint32" enum="BOOL01">
+      <notes source="JDougNY"><example hex="01000000">1</example></notes>
+    </field>
+    <field name="AutoShiftOverrideTime" section="ASSISTS" offset="0x0388" type="float">
+      <notes source="JDougNY"><example hex="CDCC0C3F">0.55</example></notes>
+    </field>
+    <field name="ManShiftOverrideTime" section="ASSISTS" offset="0x038C" type="float">
+      <notes source="JDougNY"><example hex="0000003F">0.5</example></notes>
+    </field>
+
+    <!-- Steering / AI mix -->
+    <field name="SteerRatioSpeed" section="STEERING" offset="0x0390" type="float">
+      <notes source="JDougNY"><example hex="0000C841">25.0</example></notes>
+    </field>
+    <field name="NoviceSteeringHelp" section="ASSISTS" offset="0x0394" type="float">
+      <notes source="JDougNY"><example hex="CDCC4C3E">0.2</example></notes>
+    </field>
+
+    <field name="AIPhysDifficultyMixGrip" section="AI" offset="0x03A0" type="float">
+      <notes source="JDougNY"><example hex="0000F041">30.0</example></notes>
+    </field>
+    <field name="AIPhysDifficultyMixTorque" section="AI" offset="0x03A4" type="float">
+      <notes source="JDougNY"><example hex="0000A042">80.0</example></notes>
+    </field>
+    <field name="AIPhysDifficultyMixGear" section="AI" offset="0x03A8" type="float">
+      <notes source="JDougNY"><example hex="0000A041">20.0</example></notes>
+    </field>
+    <field name="AIPhysDifficultyMixFuel" section="AI" offset="0x03AC" type="float">
+      <notes source="JDougNY"><example hex="00000000">0</example></notes>
+    </field>
+
+    <!-- AI strength -->
+    <field name="AIStrengthNovice" section="AI" offset="0x03B0" type="float">
+      <notes source="JDougNY"><example hex="0000B442">90.0</example></notes>
+    </field>
+    <field name="AIStrengthAmateur" section="AI" offset="0x03B4" type="float">
+      <notes source="JDougNY"><example hex="0000C242">97.0</example></notes>
+    </field>
+    <field name="AIStrengthPro" section="AI" offset="0x03B8" type="float">
+      <notes source="JDougNY"><example hex="0000D442">106.0</example></notes>
+    </field>
+
+    <!-- AI aggression -->
+    <field name="AIAggressionNovice" section="AI" offset="0x03BC" type="float">
+      <notes source="JDougNY"><example hex="0000F041">30.0</example></notes>
+    </field>
+    <field name="AIAggressionNormal" section="AI" offset="0x03C0" type="float">
+      <notes source="JDougNY"><example hex="00000C42">35.0</example></notes>
+    </field>
+    <field name="AIAggressionXP" section="AI" offset="0x03C4" type="float">
+      <notes source="JDougNY"><example hex="00002042">40.0</example></notes>
+    </field>
+    <field name="AIAggressionPro" section="AI" offset="0x03C8" type="float">
+      <notes source="JDougNY"><example hex="0000C842">100.0</example></notes>
+    </field>
+    <field name="AIAggressionElite" section="AI" offset="0x03CC" type="float">
+      <notes source="JDougNY"><example hex="0000C842">100.0</example></notes>
+    </field>
+    <field name="AIAggressionSpare" section="AI" offset="0x03D0" type="float">
+      <notes source="JDougNY"><example hex="0000C842">100.0</example></notes>
+    </field>
+
+    <!-- Multipliers -->
+    <field name="FuelMult" section="AI" offset="0x03D4" type="uint32">
+      <notes source="JDougNY"><example hex="01000000">1</example></notes>
+    </field>
+    <field name="TyreMult" section="AI" offset="0x03D8" type="uint32">
+      <notes source="JDougNY"><example hex="01000000">1</example></notes>
+    </field>
+
+    <!-- AI limits / braking -->
+    <field name="AIMinRadius" section="AI" offset="0x03DC" type="float">
+      <notes source="JDougNY"><example hex="0000A041">20.0</example></notes>
+    </field>
+    <field name="AIMaxLoad" section="AI" offset="0x03E0" type="float">
+      <notes source="JDougNY"><example hex="00401C47">40000.0</example></notes>
+    </field>
+    <field name="AIAdditionalFuelMult" section="AI" offset="0x03E4" type="float">
+      <notes source="JDougNY"><example hex="3333733F">0.95</example></notes>
+    </field>
+    <field name="AIBrakePower" section="AI" offset="0x03E8" type="float">
+      <notes source="JDougNY"><example hex="EC51783F">0.97</example></notes>
+    </field>
+    <field name="AIBrakeGrip" section="AI" offset="0x03EC" type="float">
+      <notes source="JDougNY"><example hex="CDCC4C3F">0.80</example></notes>
+    </field>
+    <field name="AICornerGrip" section="AI" offset="0x03F0" type="float">
+      <notes source="JDougNY"><example hex="1F856B3F">0.92</example></notes>
+    </field>
+
+    <field name="AIPowerCalibration" section="AI" offset="0x03F4" type="uint32">
+      <notes source="JDougNY"><example hex="00000000">0</example></notes>
+    </field>
+    <field name="CrashRecovery" section="AI" offset="0x03F8" type="uint32">
+      <notes source="JDougNY"><example hex="00000000">0</example></notes>
+    </field>
+
+    <!-- “Head physics” etc -->
+    <field name="HeadPhysics" section="PHYSICS" offset="0x03FC" type="float">
+      <notes source="JDougNY"><example hex="CDCC4C3F">0.8</example></notes>
+    </field>
+    <field name="VisualSteeringAtSpeed" section="STEERING" offset="0x0400" type="float">
+      <notes source="JDougNY"><example hex="0000003F">0.5</example></notes>
+    </field>
+
+    <!-- Drift control -->
+    <field name="DriftControlMaxSteerVelScale" section="DRIFT" offset="0x0404" type="float">
+      <notes source="JDougNY"><example hex="0000803F">1.0</example></notes>
+    </field>
+    <field name="DriftControlRiseDampingScale" section="DRIFT" offset="0x0408" type="float">
+      <notes source="JDougNY"><example hex="0000803F">1.0</example></notes>
+    </field>
+    <field name="DriftControlFallDampingScale" section="DRIFT" offset="0x040C" type="float">
+      <notes source="JDougNY"><example hex="0000803F">1.0</example></notes>
+    </field>
+    <field name="DriftControlNominalYawAngleScale" section="DRIFT" offset="0x0410" type="float">
+      <notes source="JDougNY"><example hex="0000003F">0.5</example></notes>
+    </field>
+    <field name="DriftControlYawAngleEffectScale" section="DRIFT" offset="0x0414" type="float">
+      <notes source="JDougNY"><example hex="0000803F">1.0</example></notes>
+    </field>
+    <field name="DriftControlLockRatioEffectScale" section="DRIFT" offset="0x0418" type="float">
+      <notes source="JDougNY"><example hex="0000803F">1.0</example></notes>
+    </field>
+    <field name="Unknown_0x041C" section="UNKNOWN" offset="0x041C" type="float">
+      <notes source="JDougNY"><example hex="D7A3F03E">0.14</example></notes>
+    </field>
+
+    <!-- Tracing / PhysX switching -->
+    <field name="LiveHDVehicleTraceEnabled" section="DEBUG" offset="0x0420" type="uint32" enum="BOOL01">
+      <notes source="JDougNY">
+        <example hex="00000000">0</example>
+        <commentary>01 00 00 00 = TRUE per source.</commentary>
+      </notes>
+    </field>
+    <field name="DisablePhysXSwitching" section="DEBUG" offset="0x0424" type="uint32" enum="BOOL01">
+      <notes source="JDougNY">
+        <example hex="01000000">1</example>
+        <commentary>00 00 00 00 = FALSE per source.</commentary>
+      </notes>
+    </field>
+    <field name="Unknown_0x0428" section="UNKNOWN" offset="0x0428" type="float">
+      <notes source="JDougNY"><example hex="CDCCCC3D">0.1</example></notes>
+    </field>
+    <field name="Unknown_0x042C" section="UNKNOWN" offset="0x042C" type="float">
+      <notes source="JDougNY"><example hex="CDCC4C3E">0.2</example></notes>
+    </field>
+
+  </profile>
+
+</mrdfDefinitions>
