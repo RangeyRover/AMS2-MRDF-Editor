@@ -1,0 +1,77 @@
+Project CARS 2
+Statistics MRDF Translation
+By JDougNY
+Version 1.01 - 4/5/2018 - added engine types
+Version 1.0 - 11/9/2017 - Initial Release 
+
+This translation provides the common address locations for statistics data used in the game.
+
+0x20-0x23 = 0000C342(Little Endian)= 97.50 // (Float) Top Speed expressed in Meters per Second.  Formula is (MPH * 0.447)
+0x24-0x27 = 66662640(Little Endian)= 2.60 // (Float) Accel 0-100kmh
+0x28-0x2B = 01000000(Little Endian)= 1 // (Decimal) Gear needed to reach 100kmh
+0x2C-0x2F = 7AC7D940(Little Endian)= 6.8056 // (Float) Accel 0-160kmh
+
+0x30-0x33 = 03000000(Little Endian)= 3 // (Decimal) Gear needed to reach 160kmh
+0x34-0x37 = E17A0440(Little Endian)= 2.07 // (Float) Braking 100-0kmh
+0x38-0x3B = 66668241(Little Endian)= 16.3 // (Float) Performance Rating (P.I.).  Not used in the game, though.
+0x3C-0x3F = 00C08544(Little Endian)= 1070.0 // (Float) Mass in KG
+
+0x40-0x43 = 06000000(Little Endian)= 6 // (Decimal) Number of Gears in transmission
+0x44-0x47 = E79A0644(Little Endian)= 538.4 // (Float) Torque in lb-ft
+0x48-0x4B = 00004844(Little Endian)= 800.0 // (Float) HP using American SAE Net (not the higher metric rating of CV or PS)
+0x4C-0x4F = 00000000(Little Endian)= 0 // (Decimal) Drivetrain type (see below)
+***Drivetrain type for address 0x4C***
+00 = RWD
+01 = AWD
+02 = FWD
+
+0x50-0x53 = 00000000(Little Endian)= 0 // Boost Type, 0=Natural Aspiration, 1=Supercharged, 2=Turbo
+0x54-0x57 = 00000000(Little Endian)= 0 // Aspiration, 0=Natural Aspiration, 1=boosted
+0x58-0x5B = 95D49B40(Little Endian)= 4.87 // (Float) Handling performance
+0x5C-0x5F = 00000000(Little Endian)= 0 // ??Unknown??
+
+0x60-0x63 = 00000000(Little Endian)= 0 // ??Unknown??
+0x64-0x67 = 04000000(Little Endian)= 4 // (Decimal) Engine type (see below)
+***Engine Type for address 0x64***
+00 = don't use
+01 = V6 
+02 = V8
+03 = V10
+04 = V12
+05 = Straight 4
+06 = Straight 5
+07 = Straight 6
+08 = Rotary 2
+09 = Rotary 3
+0A = Flat 4
+0B = Flat 6
+0C = W16
+0D = W12
+0E = Single Cylinder
+0F = Twin Cylinder
+10 = Flat 8
+11 = Flat 12
+
+0x68-0x6B = 05000000(Little Endian)= 5 // (Decimal) Tier Level
+0x6C-0x6F = AC8B5BBD(Little Endian)= -0.0536
+
+0x70-0x73 = FAEDEB3A(Little Endian)= 0.0018
+0x74-0x77 = 00000080(Little Endian)=
+0x78-0x7B = CDCC4C3C(Little Endian)= 0.0125
+0x7C-0x7F = B37B723C(Little Endian)= 0.0148
+
+0x80-0x83 = 00000000(Little Endian)= 0 // (Float) Body height adjust (in Meters) when viewing car in menus.  Does not affect body height on the track.
+0x84-0x87 = 986E3240(Little Endian)= 2.788 // (Float) Wheelbase in Meters
+0x88-0x8B = 713D0A3F(Little Endian)= 0.54 // (Float) Rear Weight Distribution
+0x8C-0x8F = 01000000(Little Endian)= 1 // Antilock Braking (ABS) 01 = true
+
+0x90-0x93 = 01000000(Little Endian)= 1 // Traction Control (TC) 01 = true
+0x94-0x97 = 01000000(Little Endian)= 1 // Stability Control (SC) 01 = true
+0x98-0x9B = 01000000(Little Endian)= 1 // Cornering Difficulty (01, 02, 03)
+0x9C-0x9F = 01000000(Little Endian)= 1 // Cornering Speed (01, 02, 03)
+
+0x0A0-0xA3 // ??
+0xA4-0xA7 = 01000000 = 1 // Shift type (see below)
+**Shift type ***
+00 = H Pattern
+01 = Sequential
